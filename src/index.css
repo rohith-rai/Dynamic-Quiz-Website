@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #18181b;
+    background-color: #f7f7f8;
+    background-image: radial-gradient(rgba(24, 24, 27, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+    background-attachment: fixed;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+}
+
+/* Quiz-card elevation & clean tactile styling */
+.quiz-card {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-bottom: 2px solid #d4d4d8;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Option tile interaction (tactile quiz button feel) */
+.quiz-option {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-bottom: 2.5px solid #d4d4d8;
+  border-radius: 0.75rem;
+  transition: all 0.15s ease-out;
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: #a1a1aa;
+  border-bottom-color: #71717a;
+  transform: translateY(-1px);
+}
+
+.quiz-option:active:not(:disabled) {
+  transform: translateY(1px);
+  border-bottom-width: 1.5px;
+}
+
+.quiz-option-selected {
+  background: #18181b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+  border-bottom: 2.5px solid #000000 !important;
+  box-shadow: 0 4px 12px -2px rgba(24, 24, 27, 0.15);
+}
+
+.quiz-option-correct {
+  background: #18181b !important;
+  color: #ffffff !important;
+  border-color: #18181b !important;
+  border-bottom: 2.5px solid #000000 !important;
+}
+
+.quiz-option-incorrect {
+  background: #f4f4f5 !important;
+  color: #71717a !important;
+  border-color: #d4d4d8 !important;
+  border-bottom: 2.5px solid #a1a1aa !important;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Subtle pulse for critical countdown timer */
+@keyframes timer-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.animate-timer-alert {
+  animation: timer-pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
